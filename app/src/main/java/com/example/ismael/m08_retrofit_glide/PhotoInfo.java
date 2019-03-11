@@ -24,13 +24,13 @@ public class PhotoInfo extends AppCompatActivity {
         Intent intent = getIntent();
         int id = intent.getIntExtra(PhotoListAdapter.PHOTO_ID, 0);
         Photo photo=(Photo) intent.getSerializableExtra(PhotoListAdapter.PHOTO_OBJECT);
-        photo.getFilename();
+
 
         final ImageView ImageView_photo= findViewById(R.id.ImageView_photo);
         final TextView photo_url = findViewById(R.id.photo_url);
         final TextView photo_author = findViewById(R.id.photo_author);
         GlideApp.with(PhotoInfo.this).load("https://picsum.photos/300/300/?image=" +id).into(ImageView_photo);
-
+        photo_author.setText(photo.getAuthor());
 
     }
 
